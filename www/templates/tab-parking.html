@@ -1,0 +1,30 @@
+<ion-view title="Parking">
+	<ion-content>
+		<ion-list ng-show="results.length == 0">
+			<div class="list">
+					<div id="distance-wrapper">
+			  			<div id="distance"></div>
+			  		</div>
+			  		<div id="duration-wrapper">
+			  			<div id="duration"></div>
+			  		</div>
+			</div>
+
+	  		<div class="list action-item">
+				<button class="button button-block button-calm" ng-click="findParking()">Find Parking</button>
+	  		</div>
+	  	</ion-list>
+
+		<ion-list ng-show="results.length > 0">
+		    <ion-item ng-repeat="result in results" type="item-text-wrap">
+		    	<a class="item item-avatar" href="#/location">
+					<img src="img/location.png">
+					<h2>{{result.name}}</h2>
+					<p>{{result.desc}}</p>
+					<p>{{result.intersection}}</p>
+				</a>
+		    </ion-item>
+    	<ion-list>
+
+  	</ion-content>
+</ion-view>

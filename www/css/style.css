@@ -1,0 +1,75 @@
+/* Empty. Add your own CSS if you like */
+
+body{
+	background: #F1F1F1;
+}
+
+.bar.bar-stable{
+	background: #DE576C !important;
+}
+
+.bar-stable .title{
+	color: white !important;
+}
+
+.tabs{
+	background-color: #34344D;
+}
+
+.tab-item .icon,
+.tab-item .tab-title{
+	color: white !important;
+}
+
+.jcs{
+	border-color: #0086D4;
+}
+
+.jcs-value{
+	background: #00559D;
+}
+
+.jcs-indicator{
+	background-color: #01B9FF;
+}
+
+#distance-wrapper,
+#duration-wrapper{
+	text-align: center;
+	margin-top: 15px;
+}
+
+#duration-wrapper{
+	margin-bottom: 30px;
+}
+
+#distance .jcs{
+	width: 200px !important;
+	height: 200px !important;
+}
+
+#distance .jcs-value{
+	line-height: 15px !important;
+	padding-top: 32px !important;
+	font-size: 15px !important;
+	top: 40px !important;
+	left: 40px !important;
+}
+
+#distance .jcs-indicator{
+	width: 30px !important;
+	height: 30px !important;
+}
+
+#duration .jcs-value{
+	font-size: 15px !important;
+	line-height: 100px;
+}
+
+.action-item{
+	width: 50%;
+	margin-top: 30px !important;
+	text-align: center;
+	margin: 0 auto;
+	text-align: center;
+}
