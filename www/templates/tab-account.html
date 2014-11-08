@@ -1,5 +1,43 @@
 <ion-view title="Account">
   <ion-content class="padding">
-    <h1>Account</h1>
+    <div class="list card">
+
+	  <div class="item item-avatar">
+	    <img src="img/mcfly.jpg">
+	    <h2>{{user.userid}}</h2>
+	    <p>Joined: November 05, 2014</p>
+	  </div>
+
+    	<a href="#" class="item item-icon-left">
+      		<i class="icon ion-email"></i>
+      		john.doe@gmail.com
+    	</a>
+
+    	<a href="#" class="item item-icon-left">
+      		<i class="icon ion-home"></i>
+      		1549 Sansome street, San Francisco, 94056
+    	</a>
+
+    	<a href="#" class="item item-icon-left">
+      		<i class="icon ion-model-s"></i>
+      		{{user.vehiclemodel}}
+    	</a>
+
+    	
+    </div>
+
+    <div class="list card">
+    	<li class="item item-toggle">
+       		Send gas price notifications
+       		<label class="toggle toggle-calm">
+         	<input type="checkbox" checked="">
+         	<div class="track">
+           	<div class="handle"></div>
+         	</div>
+       		</label>
+    	</li>
+    </div>
+
+	</div>
   </ion-content>
 </ion-view>

@@ -1,14 +1,20 @@
-<ion-view title="Gas">
+<ion-view title="Gas" id="gas-page">
   <ion-content>
-    <ion-list>
+
+	<ion-list class="loading" ng-show="loading">
+		<span class="icon ion-refreshing"></span>
+	</ion-list>
+
+    <ion-list ng-show="!loading">
       <ion-item ng-repeat="gasStation in gasStations" type="item-text-wrap">
-	        <a class="item item-avatar" href="#/tab/gasStation/{{gasStation.id}}">
-		    	<img src="img/location.png">
+	        <a class="item item-avatar" href="#" ng-click="showMap(gasStation.hrefURL)">
+		    	<img src="img/gas.png">
 		    	<h2>{{gasStation.address}}</h2>
 		    	<p>Distance: {{gasStation.distance}}</p>
-		    	<p>Price: {{gasStation.reg_price}}</p>
+		    	<p ng-show="gasStation.reg_price">Price: ${{gasStation.reg_price}}</p>
+		    	<p ng-show="gasStation.station">Station: {{gasStation.station}}</p>
 		    </a>
       </ion-item>
     </ion-list>
   </ion-content>
-</ion-view>
+</ion-view> 

@@ -10,10 +10,11 @@ body{
 
 .bar-stable .title{
 	color: white !important;
+	font-size: 20px !important;
 }
 
 .tabs{
-	background-color: #34344D;
+	background-color: #34344D !important;
 }
 
 .tab-item .icon,
@@ -72,4 +73,17 @@ body{
 	text-align: center;
 	margin: 0 auto;
 	text-align: center;
+}
+
+/* GAS PAGE */
+
+#gas-page{
+
+}
+
+#gas-page .loading{
+	text-align: center;
+	line-height: 400px;
+	font-size: 80px;
+	color: #CCC;
 }

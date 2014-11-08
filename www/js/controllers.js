@@ -77,6 +77,7 @@ angular.module('starter.controllers', [])
 
 		var lat 	=	'37.4848304';
 		var lon 	=	'-122.20338470000002';
+		var platform = (typeof device !== 'undefined' && device.platform == 'Android') ? 'android' : 'ios';
 
    		var gasAPIUrl =	'http://api.mygasfeed.com/stations/radius/' + lat + '/' + lon + '/2/reg/price/jn8ybt18zm.json?callback=JSON_CALLBACK';
 
@@ -90,10 +91,16 @@ angular.module('starter.controllers', [])
 	   					'city' : datax.city,
 	   					'id' : datax.id,
 	   					'distance' : datax.distance,
-	   					'reg_price' : data.reg_price,
-	   					'pre_price' : data.pre_price
+	   					'lat' : datax.lat,
+	   					'lng' : datax.lng,
+	   					'reg_price' : (datax.reg_price == 'N/A') ? null : data.reg_price,
+	   					'pre_price' : (datax.pre_price == 'N/A') ? null : data.pre_price,
+	   					'station' : (datax.station == 'Unbranded') ? null : data.station,
+	   					'hrefURL' : platform == 'ios' ? "maps://maps.apple.com/?q="+ datax.lat +',' + datax.lng : "geo:" + datax.lat + ',' + datax.lng
 	   				});
    				});
+
+   				$scope.loading = false;
 
 		  	})
 		  	.error(function(data, status, headers, config) {
@@ -101,12 +108,41 @@ angular.module('starter.controllers', [])
 		  	});
    	}
 
-   	$scope.findGasPrices();
+   	$scope.showMap = function(url){
+   		window.location.href = url;
+   	}
+
+   	$scope.init 	=	function(){
+   		$scope.loading = true;
+   		$scope.findGasPrices();
+   	}
+
+   	$scope.init();
 })
 
 .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
   $scope.friend = Friends.get($stateParams.friendId);
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, $http) {
+
+	$scope.getUserData 	=	function(){
+
+		var userDataURL =	'https://api-jp-t-itc.com/GetVehicleInfo';
+		$http
+   			.get('js/data/userData.json')
+   			.success(function(data, status, headers, config){
+		    	$scope.user = data.vehicleinfo ? data.vehicleinfo[0] : {};
+		  	})
+		  	.error(function(data, status, headers, config) {
+		    	
+		  	});
+	}
+
+	$scope.init = function(){
+		$scope.user = {};
+		$scope.getUserData();
+	}
+
+	$scope.init();
 });
